@@ -1,6 +1,3 @@
-# Setting working directory
-setwd("C:/Users/i028297/Dropbox/Coursera/3. Getting and Cleaning Data/Course Project  1/UCI HAR Dataset")
-
 # 
 # You should create one R script called run_analysis.R that does the following. 
 

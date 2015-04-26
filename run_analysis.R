@@ -1,13 +1,13 @@
-# 
-# You should create one R script called run_analysis.R that does the following. 
+#
+# You should create one R script called run_analysis.R that does the following.
 
 # 1. Merges the training and the test sets to create one data set.
-# 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+# 2. Extracts only the measurements on the mean and standard deviation for each measurement.
 # 3. Uses descriptive activity names to name the activities in the data set
-# 4. Appropriately labels the data set with descriptive variable names. 
-# 5. From the data set in step 4, 
-#    creates a second, independent tidy data set 
-#     with the average of each variable 
+# 4. Appropriately labels the data set with descriptive variable names.
+# 5. From the data set in step 4,
+#    creates a second, independent tidy data set
+#     with the average of each variable
 #                         for each activity and e
 #                         ach subject.
 
@@ -70,7 +70,7 @@ tnt_means_sd <- tnt_data[,c("subject_id", "activity_id",
                       meanNames, sdNames)]
 
 # join the activity labels to the data
-act_means_sd <- merge(activity_labels   , tnt_means_sd, 
+act_means_sd <- merge(activity_labels   , tnt_means_sd,
                       by.x="activity_id", by.y="activity_id", all=TRUE)
 
 # select subset of columns for requirement 5
@@ -79,4 +79,4 @@ avg_data <- melt(act_means_sd, id=c("activity_id", "activity_name", "subject_id"
 # turn data around
 avg_data <- dcast(avg_data, activity_id + activity_name + subject_id ~ variable, mean)
 
-write.table(avg_data,"./tidy_data.txt")
+write.table(avg_data,"../tidy_data.txt")

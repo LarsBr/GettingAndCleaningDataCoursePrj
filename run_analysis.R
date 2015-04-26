@@ -79,4 +79,4 @@ avg_data <- melt(act_means_sd, id=c("activity_id", "activity_name", "subject_id"
 # turn data around
 avg_data <- dcast(avg_data, activity_id + activity_name + subject_id ~ variable, mean)
 
-write.table(avg_data,"../tidy_data.txt")
+write.table(avg_data,"../tidy_data.txt", row.name = FALSE)
